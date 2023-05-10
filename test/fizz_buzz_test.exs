@@ -2,9 +2,25 @@ defmodule FizzBuzzTest do
   use ExUnit.Case
   doctest FizzBuzz
 
-  test "returns :ok if file name is correct" do
-    file_name = "numbers.txt"
+  test "when a file exists, it returns the content" do
+    file_name = "arquivo.txt"
+    expected_result = "Conteúdo do arquivo"
 
-    assert "1,2,3,4,5,10,15,20" = FizzBuzz.build(file_name)
+    File.write(file_name, expected_result)
+
+    result = FizzBuzz.build(file_name)
+
+    assert result == expected_result
+
+    File.rm(file_name)
+  end
+
+  test "when the file does not exist, it returns an error" do
+    # Arrange
+    file_name = "invalid.txt"
+
+    result = FizzBuzz.build(file_name)
+
+    assert result == "File not found"
   end
 end
