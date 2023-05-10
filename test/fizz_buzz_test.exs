@@ -3,8 +3,8 @@ defmodule FizzBuzzTest do
   doctest FizzBuzz
 
   test "when a file exists, it returns the content" do
-    file_name = "arquivo.txt"
-    expected_result = "Conteúdo do arquivo"
+    file_name = "file.txt"
+    expected_result = "Content of the file"
 
     File.write(file_name, expected_result)
 
@@ -16,7 +16,6 @@ defmodule FizzBuzzTest do
   end
 
   test "when the file does not exist, it returns an error" do
-    # Arrange
     file_name = "invalid.txt"
 
     result = FizzBuzz.build(file_name)
