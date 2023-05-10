@@ -19,8 +19,6 @@ jobs:
 
     name: Build and test
     runs-on: ubuntu-latest
-    
-    'env': 'ubuntu-20'
 
     steps:
     - uses: actions/checkout@v3
