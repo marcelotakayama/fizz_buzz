@@ -4,13 +4,13 @@ defmodule FizzBuzzTest do
 
   test "when a file exists, it returns the content" do
     file_name = "file.txt"
-    expected_result = "Content of the file"
+    expected_result = "1,2,3,4,5,10,15,20"
 
     File.write(file_name, expected_result)
 
     result = FizzBuzz.build(file_name)
 
-    assert result == expected_result
+    assert result == [1, 2, 3, 4, 5, 10, 15, 20]
 
     File.rm(file_name)
   end
@@ -20,6 +20,6 @@ defmodule FizzBuzzTest do
 
     result = FizzBuzz.build(file_name)
 
-    assert result == "File not found"
+    assert result == "Error reading the file: ¨enoent"
   end
 end
